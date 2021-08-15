@@ -12,6 +12,7 @@ html {
 }
 
 body {
+  position: relative;
   min-height: 100vh;
   display: flex;
   justify-content: center;
@@ -81,5 +82,33 @@ form #submit-btn:hover {
 
 form #submit-btn:active {
   background-color: #5ad88a;
+}
+
+.info-container {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  width: 250px;
+  height: 450px;
+  padding: 20px;
+  background-color: rgba(1, 38, 59, 0.5);
+  backdrop-filter: blur(5px);
+  color: white;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+
+h4 {
+  font-size: 0.9rem;
+  text-decoration: underline;
+}
+
+small {
+  font-size: 0.7rem;
+}
+
+li {
+  list-style-position: inside;
 }
 /*# sourceMappingURL=style.css.map */

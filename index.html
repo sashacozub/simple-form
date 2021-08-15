@@ -16,6 +16,7 @@
             <form action="" method="POST" autocomplete="off">
                 <label for="fname"></label>
                 <input type="text" id="fname" name="fname" placeholder="First Name">
+                
 
                 <label for="lname"></label>
                 <input type="text" id="lname" name="lname" placeholder="Last Name">
@@ -40,6 +41,45 @@
                 <button type="submit" id="submit-btn">Submit</button>
             </form>
         </div>
+    </div>
+    <div class="info-container">
+        <div>
+            <h4>First name:</h4>
+            <ul>
+                <li><small data-fname="min">Must be minimum 3 letters long</small></li>
+                <li><small data-fname="letters">Must only be letters</small></li>
+                <li><small data-fname="max">Must not be longer than 15 letters long</small></li>
+            </ul>
+        </div>
+        <div>
+            <h4>Last name:</h4>
+            <ul>
+                <li><small data-lname="min">Must be minimum 3 letters long</small></li>
+                <li><small data-lname="letters">Must only be letters</small></li>
+                <li><small data-lname="max">Must not be longer than 15 letters long</small></li>
+            </ul>
+        </div>
+        <div>
+            <h4>E-mail:</h4>
+            <ul>
+                <li><small data-email>Needs to be a valid e-mail</small></li>
+            </ul>
+        </div>
+        <div>
+            <h4>Country:</h4>
+            <ul>
+                <li><small data-country>Country must be selected</small></li>
+            </ul>
+        </div>
+       <div>
+        <h4>Password:</h4>
+        <ul>
+            <li><small data-password="min">Must be minimum 6 characters long</small></li>
+            <li><small data-password="char">Must include at least one uppercase letter, one lowercase letter and one number</small></li>
+            <li><small data-password="max">Must not be longer than 16 characters long</small></li>
+            <li><small data-password="match">The passwords must match</small></li>
+        </ul>
+       </div>
     </div>
 </body>
 </html>
