@@ -1,8 +1,23 @@
+@import url("https://fonts.googleapis.com/css2?family=Oswald:wght@200;400;700&display=swap");
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-family: 'Oswald', sans-serif;
+}
+
 body {
   min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
+  background: url("./app/assets/img/bg.jpeg") center no-repeat;
+  background-size: cover;
 }
 
 .main-container {
@@ -10,6 +25,17 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  background-color: rgba(1, 38, 59, 0.3);
+  backdrop-filter: blur(5px);
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.main-container h1 {
+  font-size: 3rem;
+  font-weight: 400;
+  margin: 25px;
+  color: white;
 }
 
 form {
@@ -19,7 +45,41 @@ form {
   align-items: center;
 }
 
-input {
-  margin: 10px;
+form input,
+form select,
+form #submit-btn {
+  min-width: 400px;
+  height: 50px;
+  padding: 10px;
+  font-family: 'Oswald', sans-serif;
+  font-size: 1.2rem;
+  font-weight: 200;
+  outline: none;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  border-radius: 5px;
+  margin: 1px;
+  transition: all 300ms ease;
+}
+
+form select {
+  padding: 6px;
+}
+
+form input:hover {
+  border: 1px solid #011a2c;
+}
+
+form #submit-btn {
+  background-color: #5ad88a;
+  cursor: pointer;
+  transition: all 100ms ease;
+}
+
+form #submit-btn:hover {
+  background-color: #32f07b;
+}
+
+form #submit-btn:active {
+  background-color: #5ad88a;
 }
 /*# sourceMappingURL=style.css.map */
