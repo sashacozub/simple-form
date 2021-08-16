@@ -111,4 +111,57 @@ small {
 li {
   list-style-position: inside;
 }
+
+/*========== Starting colors for first name info ==========*/
+small[data-fname="min"] {
+  color: #f05832;
+}
+
+small[data-fname="letters"] {
+  color: #f05832;
+}
+
+small[data-fname="max"] {
+  color: #32f07b;
+}
+
+/*========== Starting colors for last name info ==========*/
+small[data-lname="min"] {
+  color: #f05832;
+}
+
+small[data-lname="letters"] {
+  color: #f05832;
+}
+
+small[data-lname="max"] {
+  color: #32f07b;
+}
+
+/*========== Starting colors for email info ==========*/
+small[data-email] {
+  color: #f05832;
+}
+
+/*========== Starting colors for country info ==========*/
+small[data-country] {
+  color: #f05832;
+}
+
+/*========== Starting colors for password info ==========*/
+small[data-password="min"] {
+  color: #f05832;
+}
+
+small[data-password="char"] {
+  color: #f05832;
+}
+
+small[data-password="max"] {
+  color: #32f07b;
+}
+
+small[data-password="match"] {
+  color: #f05832;
+}
 /*# sourceMappingURL=style.css.map */

@@ -85,6 +85,7 @@ form {
     }
 }
 
+
 .info-container {
     position: absolute;
     top: 50%;
@@ -112,4 +113,62 @@ small {
 
 li {
     list-style-position: inside;
+}
+
+
+/*========== Starting colors for first name info ==========*/
+small[data-fname="min"] {
+    color: rgb(240, 88, 50);
+}
+
+small[data-fname="letters"] {
+    color: rgb(240, 88, 50);
+}
+
+small[data-fname="max"] {
+    color: rgb(50, 240, 123);
+}
+
+
+/*========== Starting colors for last name info ==========*/
+small[data-lname="min"] {
+    color: rgb(240, 88, 50);
+}
+
+small[data-lname="letters"] {
+    color: rgb(240, 88, 50);
+}
+
+small[data-lname="max"] {
+    color: rgb(50, 240, 123);
+}
+
+
+/*========== Starting colors for email info ==========*/
+small[data-email] {
+    color: rgb(240, 88, 50);
+}
+
+
+/*========== Starting colors for country info ==========*/
+small[data-country] {
+    color: rgb(240, 88, 50);
+}
+
+
+/*========== Starting colors for password info ==========*/
+small[data-password="min"] {
+    color: rgb(240, 88, 50);
+}
+
+small[data-password="char"] {
+    color: rgb(240, 88, 50);
+}
+
+small[data-password="max"] {
+    color: rgb(50, 240, 123);
+}
+
+small[data-password="match"] {
+    color: rgb(240, 88, 50);
 }

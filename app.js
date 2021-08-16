@@ -8,9 +8,11 @@ const password = document.querySelector('#password');
 const passwordRepeat = document.querySelector('#password2');
 const submitButton = document.querySelector('#submit-btn');
 
+// Create variables for colors for approval or rejection of input
 const approvedColor = 'rgb(50, 240, 123)';
 const rejectedColor = 'rgb(240, 88, 50)';
 
+// Get all the fields for info that will let user know if the form is filled in correctly
 const firstNameInfoMin = document.querySelector('[data-fname="min"]');
 const firstNameInfoLetters = document.querySelector('[data-fname="letters"]');
 const firstNameInfoMax = document.querySelector('[data-fname="max"]');
@@ -27,7 +29,6 @@ const passwordInfoMin = document.querySelector('[data-password="min"]');
 const passwordInfoChar = document.querySelector('[data-password="char"]');
 const passwordInfoMax = document.querySelector('[data-password="max"]');
 const passwordInfoMatch = document.querySelector('[data-password="match"]')
-
 
 // Populate "Country" field with all the options on page load
 window.addEventListener('load', () => getCountries());
@@ -54,24 +55,32 @@ const getCountries = async () => {
 form.addEventListener('submit', e => {
     e.preventDefault();
 
-    checkFirstName();
-    checkLastName();
-    checkEmail();
-    checkCountry();
-
-    // form.reset();
+    // Submit the form only if all the input fields have valid input
+    if (
+        checkFirstName() &&
+        checkLastName() &&
+        checkEmail() &&
+        checkCountry() &&
+        checkPassword() &&
+        checkPasswordRepeat()
+    ) {
+        form.reset();
+    } else {
+        checkFirstName();
+        checkLastName();
+        checkEmail();
+        checkCountry();
+        checkPassword();
+        checkPasswordRepeat();
+    }
 });
 
+// Listen for changes in form filling and update info live
 firstName.addEventListener('keyup', () => checkFirstName());
-
 lastName.addEventListener('keyup', () => checkLastName());
-
 email.addEventListener('keyup', () => checkEmail());
-
 country.addEventListener('change', () => checkCountry());
-
 password.addEventListener('keyup', () => checkPassword());
-
 passwordRepeat.addEventListener('keyup', () => checkPasswordRepeat());
 
 
@@ -97,6 +106,12 @@ const checkFirstName = () => {
         firstName.style.border = `1px solid ${rejectedColor}`;
         firstNameInfoMax.style.color = rejectedColor;
     }
+
+    if (
+        firstName.value.length < 3 || 
+        !firstName.value.match(reg) || 
+        firstName.value.length > 15
+        ) { return false } else { return true };
 };
 
 const checkLastName = () => {
@@ -121,6 +136,12 @@ const checkLastName = () => {
         lastName.style.border = `1px solid ${rejectedColor}`;
         lastNameInfoMax.style.color = rejectedColor;
     }
+
+    if (
+        lastName.value.length < 3 || 
+        !lastName.value.match(reg) || 
+        lastName.value.length > 15
+        ) { return false } else { return true };
 };
 
 const checkEmail = () => {
@@ -132,7 +153,10 @@ const checkEmail = () => {
     if (!email.value.match(reg)) {
         email.style.border = `1px solid ${rejectedColor}`;
         emailInfo.style.color = rejectedColor;
+        return false;
     }
+
+    return true;
 };
 
 const checkCountry = () => {
@@ -142,7 +166,10 @@ const checkCountry = () => {
     if (country.value !== 'country') {
         countryInfo.style.color = approvedColor;
         country.style.border = `1px solid ${approvedColor}`;
+        return true;
     };
+
+    return false;
 };
 
 const checkPassword = () => {
@@ -167,15 +194,24 @@ const checkPassword = () => {
         password.style.border = `1px solid ${rejectedColor}`;
         passwordInfoMax.style.color = rejectedColor;
     }
+
+    if (
+        password.value.length < 6 || 
+        !password.value.match(reg) || 
+        password.value.length > 16
+        ) { return false } else { return true };
 };
 
 const checkPasswordRepeat = () => {
     passwordRepeat.style.border = `1px solid ${rejectedColor}`;
     passwordInfoMatch.style.color = rejectedColor;
 
-    if (passwordRepeat.value === password.value) {
+    if (passwordRepeat.value === password.value && passwordRepeat.value.length > 0) {
         passwordRepeat.style.border = `1px solid ${approvedColor}`;
         passwordInfoMatch.style.color = approvedColor;
+        return true;
     }
+
+    return false;
 };
 
