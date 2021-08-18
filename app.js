@@ -7,6 +7,7 @@ const country = document.querySelector('#country');
 const password = document.querySelector('#password');
 const passwordRepeat = document.querySelector('#password2');
 const submitButton = document.querySelector('#submit-btn');
+const infoToggle = document.querySelector('.info-toggle');
 
 // Create variables for colors for approval or rejection of input
 const approvedColor = 'rgb(50, 240, 123)';
@@ -29,6 +30,9 @@ const passwordInfoMin = document.querySelector('[data-password="min"]');
 const passwordInfoChar = document.querySelector('[data-password="char"]');
 const passwordInfoMax = document.querySelector('[data-password="max"]');
 const passwordInfoMatch = document.querySelector('[data-password="match"]')
+
+// Check if error message is on the screen
+let isError = false;
 
 // Populate "Country" field with all the options on page load
 window.addEventListener('load', () => getCountries());
@@ -64,6 +68,7 @@ form.addEventListener('submit', e => {
         checkPassword() &&
         checkPasswordRepeat()
     ) {
+        submitSuccess();
         form.reset();
     } else {
         checkFirstName();
@@ -72,8 +77,72 @@ form.addEventListener('submit', e => {
         checkCountry();
         checkPassword();
         checkPasswordRepeat();
+        if (!isError) {
+            submitError();
+        }
     }
 });
+
+// Create error notification box if there were issues on submission
+const submitError = () => {
+    const body = document.querySelector('body');
+    const div = document.createElement('div');
+    const h2 = document.createElement('h2');
+    const p = document.createElement('p');
+    const small = document.createElement('small');
+
+    div.id = 'submit-error';
+    h2.innerText = 'Oops!';
+    p.innerText = 'Check if all the fields are filled in correctly!';
+    small.innerText = 'See info on the side for more info.';
+
+    div.appendChild(h2);
+    div.appendChild(p);
+    div.appendChild(small);
+    body.appendChild(div);
+
+    isError = true;
+
+    // Smooth slide in right after element is created
+    setTimeout(() => {
+        div.style.transform = 'translate(0%)';
+    }, 0);
+
+    // Remove element automatically after some time
+    setTimeout(() => {
+        const messageRemove = document.getElementById('submit-error');
+        body.removeChild(messageRemove);
+        isError = false;
+    }, 3000);
+}
+
+
+const submitSuccess = () => {
+    const body = document.querySelector('body');
+    const div = document.createElement('div');
+    const h2 = document.createElement('h2');
+    const p = document.createElement('p');
+
+    div.id = 'submit-success';
+    h2.innerText = 'Thank you!';
+    p.innerText = 'Your form has been successfully submitted!';
+
+    div.appendChild(h2);
+    div.appendChild(p);
+    body.appendChild(div);
+
+    // Smooth slide in right after element is created
+    setTimeout(() => {
+        div.style.transform = 'translate(0%)';
+    }, 0);
+
+    // Remove element automatically after some time
+    setTimeout(() => {
+        const messageRemove = document.getElementById('submit-success');
+        body.removeChild(messageRemove);
+    }, 3000);
+}
+
 
 // Listen for changes in form filling and update info live
 firstName.addEventListener('keyup', () => checkFirstName());
@@ -215,3 +284,6 @@ const checkPasswordRepeat = () => {
     return false;
 };
 
+infoToggle.addEventListener('click', (e) => {
+    console.log(e.target)
+})
