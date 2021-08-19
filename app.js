@@ -117,7 +117,7 @@ const submitError = () => {
         const messageRemove = document.getElementById('submit-error');
         body.removeChild(messageRemove);
         isError = false;
-    }, 3000);
+    }, 5000);
 }
 
 
@@ -144,7 +144,7 @@ const submitSuccess = () => {
     setTimeout(() => {
         const messageRemove = document.getElementById('submit-success');
         body.removeChild(messageRemove);
-    }, 3000);
+    }, 5000);
 }
 
 
@@ -290,10 +290,10 @@ const checkPasswordRepeat = () => {
 
 infoToggle.addEventListener('click', (e) => {
     if (infoIsOpen) {
-        infoContainer.style.transform = 'translate(250px, -50%)';
+        infoContainer.style.transform = 'translate(-50%, -470px)';
         infoIsOpen = false;
     } else {
-        infoContainer.style.transform = 'translate(0px, -50%)';
+        infoContainer.style.transform = 'translate(-50%, 0px)';
         infoIsOpen = true;
     }
 })
