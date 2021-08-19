@@ -7,6 +7,7 @@ const country = document.querySelector('#country');
 const password = document.querySelector('#password');
 const passwordRepeat = document.querySelector('#password2');
 const submitButton = document.querySelector('#submit-btn');
+const infoContainer = document.querySelector('.info-container');
 const infoToggle = document.querySelector('.info-toggle');
 
 // Create variables for colors for approval or rejection of input
@@ -33,6 +34,9 @@ const passwordInfoMatch = document.querySelector('[data-password="match"]')
 
 // Check if error message is on the screen
 let isError = false;
+
+//Check if info container is open or closed. Closed is default
+let infoIsOpen = false;
 
 // Populate "Country" field with all the options on page load
 window.addEventListener('load', () => getCountries());
@@ -285,5 +289,11 @@ const checkPasswordRepeat = () => {
 };
 
 infoToggle.addEventListener('click', (e) => {
-    console.log(e.target)
+    if (infoIsOpen) {
+        infoContainer.style.transform = 'translate(250px, -50%)';
+        infoIsOpen = false;
+    } else {
+        infoContainer.style.transform = 'translate(0px, -50%)';
+        infoIsOpen = true;
+    }
 })
